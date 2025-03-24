@@ -4,10 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using PinterestCheckLinked;
+using ChangeViaFBTool;
 
 
-namespace PinterestCheckLinked
+namespace ChangeViaFBTool
 {
     internal static class Program
     {

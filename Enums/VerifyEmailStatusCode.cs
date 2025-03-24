@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PinterestCheckLinked.Enums
+namespace ChangeViaFBTool.Enums
 {
     public enum VerifyEmailStatusCode
     {
-        Linked,
-        NotLinked,
-        Nothing
+        Live,
+        Die,
+        Error
     }
 }

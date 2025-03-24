@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PinterestCheckLinked.Singleton;
+using ChangeViaFBTool.Singleton;
 
-namespace PinterestCheckLinked.Config
+namespace ChangeViaFBTool.Config
 {
     public class UIConfig
     {
@@ -58,28 +58,62 @@ namespace PinterestCheckLinked.Config
                 UISettingManager.Write("useproxy", value.ToString());
             }
         }
+        public static string FBPassword
+        {
+            get
+            {
+                string payload = UISettingManager.Read("fbPassword");
+                if (string.IsNullOrEmpty(payload))
+                {
+                    return string.Empty;
+                }
+                return payload;
+            }
+            set
+            {
+                UISettingManager.Write("fbPassword", value.ToString());
+            }
+        }
         /// <summary>
         /// 1 : Checklinked
         /// <br></br>
         /// 2 : Check Die
 
         /// </summary>
-        public static int TaskType
-        {
-            get
-            {
-                string val = UISettingManager.Read("tasktype");
-                if (string.IsNullOrEmpty(val))
-                {
-                    return 1;
-                }
-                return int.Parse(val);
-            }
-            set
-            {
-                UISettingManager.Write("tasktype", value.ToString());
-            }
-        }
+        //public static int TaskType
+        //{
+        //    get
+        //    {
+        //        string val = UISettingManager.Read("tasktype");
+        //        if (string.IsNullOrEmpty(val))
+        //        {
+        //            return 1;
+        //        }
+        //        return int.Parse(val);
+        //    }
+        //    set
+        //    {
+        //        UISettingManager.Write("tasktype", value.ToString());
+        //    }
+        //}
+        //public static int RequestPerIP
+        //{
+        //    get
+        //    {
+        //        string val = UISettingManager.Read("requestperip");
+        //        if (string.IsNullOrEmpty(val))
+        //        {
+        //            return 1;
+        //        }
+        //        return int.Parse(val);
+        //    }
+        //    set
+        //    {
+        //        UISettingManager.Write("requestperip", value.ToString());
+        //    }
+        //}
+
+
     }
 
 }

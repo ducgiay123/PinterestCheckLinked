@@ -1,4 +1,4 @@
-﻿namespace PinterestCheckLinked.Views
+﻿namespace ChangeViaFBTool.Views
 {
     partial class ImportForm
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PinterestCheckLinked.Models
+namespace ChangeViaFBTool.Models
 {
     public class DataGridCellName
     {

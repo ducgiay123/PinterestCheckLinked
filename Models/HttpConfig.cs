@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Leaf.xNet;
 
-namespace PinterestCheckLinked.Models
+namespace ChangeViaFBTool.Models
 {
     public class HttpConfig
     {

@@ -3,71 +3,45 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PinterestCheckLinked.Models;
+using ChangeViaFBTool.Models;
 using Leaf.xNet;
+using Newtonsoft.Json;
 using System.Text.Json;
+using System.Threading;
+using System.Security.Policy;
+using System.Net.Http;
+using System.Text.RegularExpressions;
+using System.Net;
 
-namespace PinterestCheckLinked.Services
+namespace ChangeViaFBTool.Services
 {
     public class APIServices
     {
-        public PinterestAPIExecuteResult.VerifyEmailResult APICheckLinkedToPinterest(PinterestAPIOptions.VerifyEmailOptions options) {
-            var result = new PinterestAPIExecuteResult.VerifyEmailResult();
-            result.StatusCode = Enums.PinterestAPIExecuteStatusCode.Success;
-            result.EmailStatusCode = Enums.VerifyEmailStatusCode.Nothing;
+        private string _lastID = string.Empty;
+        
+
+        public APIOptions.APIEmailResult GetCodeService(APIOptions.VerifyEmailOptions options)
+        {
+            var result = new APIOptions.APIEmailResult();
             HttpRequest httpRequest = HttpFactory.NewClient(options.HttpConfig);
-            httpRequest.UserAgent = Http.RandomUserAgent();
+            httpRequest.ConnectTimeout = 10000;
+            //httpRequest.ReadWriteTimeout = 5;
+
             HttpResponse httpResponse = null;
             try
             {
-                string[] email = options.Email.Split('@');
-                //string testProxy = $"https://api.ipify.org/?format=json";
-                string urlVerify = $"https://fi.pinterest.com/resource/ApiResource/get/?source_url=%2Fpassword%2Freset%2F&data=%7B%22options%22%3A%7B%22url%22%3A%22%2Fv3%2Fregister%2Fexists%2F%22%2C%22data%22%3A%7B%22email%22%3A%22{email[0]}%40{email[1]}%22%7D%7D%2C%22context%22%3A%7B%7D%7D&_=1731427608635";
-                //httpResponse = httpRequest.Get(testProxy);
-                httpResponse = httpRequest.Get(urlVerify);
+                AddCustomHeaders(httpRequest);
+                string example = "VXWRQ4RPZDJZ2IDI3X64NVDV5RUQPNIH";
+                string url2faLive = $"https://2fa.live/tok/{example}";
+                httpResponse = httpRequest.Get(url2faLive);
+                ApiResponse data = JsonConvert.DeserializeObject<ApiResponse>(httpResponse.ToString());
+                httpResponse = null ;
+                result.TwoFACode = data.Token;  
 
-                if (httpResponse.StatusCode == HttpStatusCode.OK)
-                {
-                    string jsonContent = httpResponse.ToString();
-                    using (JsonDocument jsonDoc = JsonDocument.Parse(jsonContent))
-                    {
-                        JsonElement root = jsonDoc.RootElement;
-
-                        if (root.TryGetProperty("resource_response", out JsonElement resourceResponse))
-                        {
-                            if (resourceResponse.TryGetProperty("data", out JsonElement dataElement))
-                            {
-                                bool isLinked = dataElement.GetBoolean();
-                                result.EmailStatusCode = isLinked ? Enums.VerifyEmailStatusCode.Linked : 
-                                                                    Enums.VerifyEmailStatusCode.NotLinked;
-
-                            }
-                            else
-                            {
-                                result.EmailStatusCode = Enums.VerifyEmailStatusCode.Nothing;
-                            }
-                           
-                        }
-                        else
-                        {
-                            result.EmailStatusCode = Enums.VerifyEmailStatusCode.Nothing;
-                        }
-                    }
-                }
-                else if (httpResponse.StatusCode == HttpStatusCode.TooManyRequests)
-                {
-                    result.EmailStatusCode = Enums.VerifyEmailStatusCode.Nothing;
-                    result.StatusCode = Enums.PinterestAPIExecuteStatusCode.Error;
-                }
-                else
-                {
-                    result.StatusCode = Enums.PinterestAPIExecuteStatusCode.Error;
-                }
             }
             catch (Exception ex)
             {
-                result.Exception = ex;
-                result.StatusCode = Enums.PinterestAPIExecuteStatusCode.Error;
+
             }
             finally
             {
@@ -76,6 +50,67 @@ namespace PinterestCheckLinked.Services
                 httpResponse = null;
             }
             return result;
+        }
+
+
+
+        private void AddCustomHeaders(HttpRequest httpRequest)
+        {
+            if (httpRequest == null)
+                throw new ArgumentNullException(nameof(httpRequest));
+
+            httpRequest["accept"] = "*/*";
+            httpRequest["referer"] = "https://2fa.live/";
+            httpRequest["x-requested-with"] = "XMLHttpRequest";
+            httpRequest["user-agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36";
+            httpRequest["sec-ch-ua"] = "\"Chromium\";v=\"134\", \"Not:A-Brand\";v=\"24\", \"Google Chrome\";v=\"134\"";
+            httpRequest["sec-ch-ua-mobile"] = "?0";
+            httpRequest["sec-ch-ua-platform"] = "\"Windows\"";
+        }
+
+
+        static void EditPayloadValues(RequestParams payload, string newEmail)
+        {
+            // Update the values in the payload
+            payload["email"] = newEmail;
+            //payload["prefill_contact_point"] = newEmail;
+        }
+        public static void SetUpCookiesHeaderForAPIRequest(HttpRequest httpRequest, string headers)
+        {
+            var headerDictionary = new Dictionary<string, string>();
+
+            foreach (var line in headers.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries))
+            {
+                var separatorIndex = line.IndexOf(':');
+                if (separatorIndex > -1)
+                {
+                    string key = line.Substring(0, separatorIndex).Trim();
+                    string value = line.Substring(separatorIndex + 1).Trim();
+                    headerDictionary[key] = value;
+                }
+            }
+            foreach (var item in headerDictionary)
+            {
+                httpRequest.AddHeader(item.Key, item.Value);
+            }
+        }
+        public static RequestParams ParseStringToPayload(string rawString)
+        {
+            var payload = new RequestParams();
+            var lines = rawString.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+
+            foreach (var line in lines)
+            {
+                var parts = line.Split(new[] { ':' }, 2);
+                if (parts.Length == 2)
+                {
+                    var key = parts[0].Trim();
+                    var value = parts[1].Trim();
+                    payload[key] = value;
+                }
+            }
+
+            return payload;
         }
     }
 }
