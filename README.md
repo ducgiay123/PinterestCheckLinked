@@ -28,14 +28,6 @@ The **Pinterest Email Verification Tool** is a Windows Forms application built u
 4. Save results to a file for further use.
 
 
-## API Handling
-The tool communicates with Pinterest's API using HTTP requests. Ensure you have a valid **API Key**. Example request:
-```csharp
-HttpClient client = new HttpClient();
-client.DefaultRequestHeaders.Add("Authorization", "Bearer YOUR_API_KEY");
-var response = await client.GetAsync("https://api.pinterest.com/v5/user/emails/check?email=example@example.com");
-```
-
 ## File I/O
 - Input: Emails are read from a `.txt` file (one email per line).
 - Output: Results are saved in a `.csv` or `.txt` file with status information.
