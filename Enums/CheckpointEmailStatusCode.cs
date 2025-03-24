@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PinterestCheckLinked.Enums
+namespace CheckDieLinkedinToolV3.Enums
 {
     public enum CheckpointEmailStatusCode
     {

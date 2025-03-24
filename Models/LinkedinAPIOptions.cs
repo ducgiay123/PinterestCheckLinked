@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PinterestCheckLinked.Models
+namespace CheckDieLinkedinToolV3.Models
 {
-    public class PinterestAPIOptions
+    public class LinkedinAPIOptions
     {
         public class CheckpointEmailOptions : BaseAPIOptions
         {

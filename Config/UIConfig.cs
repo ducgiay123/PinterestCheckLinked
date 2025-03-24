@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PinterestCheckLinked.Singleton;
+using CheckDieLinkedinToolV3.Singleton;
 
-namespace PinterestCheckLinked.Config
+namespace CheckDieLinkedinToolV3.Config
 {
     public class UIConfig
     {
@@ -64,22 +64,40 @@ namespace PinterestCheckLinked.Config
         /// 2 : Check Die
 
         /// </summary>
-        public static int TaskType
-        {
-            get
-            {
-                string val = UISettingManager.Read("tasktype");
-                if (string.IsNullOrEmpty(val))
-                {
-                    return 1;
-                }
-                return int.Parse(val);
-            }
-            set
-            {
-                UISettingManager.Write("tasktype", value.ToString());
-            }
-        }
+        //public static int TaskType
+        //{
+        //    get
+        //    {
+        //        string val = UISettingManager.Read("tasktype");
+        //        if (string.IsNullOrEmpty(val))
+        //        {
+        //            return 1;
+        //        }
+        //        return int.Parse(val);
+        //    }
+        //    set
+        //    {
+        //        UISettingManager.Write("tasktype", value.ToString());
+        //    }
+        //}
+        //public static int RequestPerIP
+        //{
+        //    get
+        //    {
+        //        string val = UISettingManager.Read("requestperip");
+        //        if (string.IsNullOrEmpty(val))
+        //        {
+        //            return 1;
+        //        }
+        //        return int.Parse(val);
+        //    }
+        //    set
+        //    {
+        //        UISettingManager.Write("requestperip", value.ToString());
+        //    }
+        //}
+
+
     }
 
 }

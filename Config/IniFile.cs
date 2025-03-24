@@ -3,7 +3,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace PinterestCheckLinked.Config
+namespace CheckDieLinkedinToolV3.Config
 {
     public class IniFile   // revision 11
     {

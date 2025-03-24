@@ -4,10 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using PinterestCheckLinked;
+using CheckDieLinkedinToolV3;
 
 
-namespace PinterestCheckLinked
+namespace CheckDieLinkedinToolV3
 {
     internal static class Program
     {

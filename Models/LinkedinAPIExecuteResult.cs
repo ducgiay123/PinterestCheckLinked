@@ -1,13 +1,13 @@
-﻿using PinterestCheckLinked.Enums;
+﻿using CheckDieLinkedinToolV3.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PinterestCheckLinked.Models
+namespace CheckDieLinkedinToolV3.Models
 {
-    public class PinterestAPIExecuteResult
+    public class LinkedinAPIExecuteResult
     {
         public class CheckpointEmailSubmitResult : BaseAPIExecuteResult
         {
@@ -20,7 +20,7 @@ namespace PinterestCheckLinked.Models
         public class BaseAPIExecuteResult
         {
             public Exception Exception { get; set; }
-            public PinterestAPIExecuteStatusCode StatusCode { get; set; }
+            public LinkedinAPIExecuteStatusCode StatusCode { get; set; }
         }
     }
 }

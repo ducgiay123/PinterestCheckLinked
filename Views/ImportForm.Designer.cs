@@ -1,4 +1,4 @@
-﻿namespace PinterestCheckLinked.Views
+﻿namespace CheckDieLinkedinToolV3.Views
 {
     partial class ImportForm
     {

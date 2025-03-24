@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PinterestCheckLinked.Models
+namespace CheckDieLinkedinToolV3.Models
 {
     public class Data
     {

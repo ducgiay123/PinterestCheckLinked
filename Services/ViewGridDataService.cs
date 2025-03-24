@@ -6,9 +6,9 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PinterestCheckLinked.Models;
+using CheckDieLinkedinToolV3.Models;
 
-namespace PinterestCheckLinked.Services
+namespace CheckDieLinkedinToolV3.Services
 {
     public class ViewGridDataService
     {
@@ -24,17 +24,15 @@ namespace PinterestCheckLinked.Services
         //    SafeSetValueCell(row, DataGridCellName.CellProxy, proxy);
         //    SafeSetValueCell(row, DataGridCellName.Cellstt, _number);
         //}
-        public Data AddNewRow()
+        public Data AddNewRow(int index)
         {
-            int row = 0;
             this.dataGridView.Invoke(new Action(() =>
             {
-                row = this.dataGridView.Rows.Add();
+                this.dataGridView.Rows.Add();
             }));
-            int number = row + 1;
             Data data = new Data();
-            data.Index = row;
-            SafeSetValueCell(row, DataGridCellName.CellStt, number);
+            int row = index ;
+            SafeSetValueCell(row, DataGridCellName.CellStt, index);
             datas.Add(data);
             return data;
         }
