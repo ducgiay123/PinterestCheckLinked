@@ -27,7 +27,6 @@ The **Pinterest Email Verification Tool** is a Windows Forms application built u
 3. Click **Start Verification** to check which emails are linked to Pinterest.
 4. Save results to a file for further use.
 
-
 ## File I/O
 - Input: Emails are read from a `.txt` file (one email per line).
 - Output: Results are saved in a `.csv` or `.txt` file with status information.
@@ -39,3 +38,6 @@ The **Pinterest Email Verification Tool** is a Windows Forms application built u
 
 ## Future Enhancements
 - Multi-threaded email verification for faster processing
+  
+## Contact
+- For issues or feature requests, please open an issue on GitHub or contact [ductrung190499@gmail.com].
