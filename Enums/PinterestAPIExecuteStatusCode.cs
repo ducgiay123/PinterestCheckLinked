@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ChangeViaFBTool.Enums
+namespace PinterestCheckLinked.Enums
 {
-    public enum FacebookAPIExecuteStatusCode
+    public enum PinterestAPIExecuteStatusCode
     {
         Success,
         Error

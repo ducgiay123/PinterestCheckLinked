@@ -6,9 +6,9 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ChangeViaFBTool.Models;
+using PinterestCheckLinked.Models;
 
-namespace ChangeViaFBTool.Services
+namespace PinterestCheckLinked.Services
 {
     public class ViewGridDataService
     {
@@ -18,47 +18,25 @@ namespace ChangeViaFBTool.Services
         public ViewGridDataService(DataGridView gridView)
         {
             dataGridView = gridView;
-            dataGridView.DefaultCellStyle.Font = new Font("Arial", 10);
         }
         //private void SetDataForRow(int row, string proxy , string email  ) {
         //    SafeSetValueCell(row, DataGridCellName.CellEmail, email);
         //    SafeSetValueCell(row, DataGridCellName.CellProxy, proxy);
         //    SafeSetValueCell(row, DataGridCellName.Cellstt, _number);
         //}
-        public Data AddNewRow(int index)
+        public Data AddNewRow()
         {
+            int row = 0;
             this.dataGridView.Invoke(new Action(() =>
             {
-                this.dataGridView.Rows.Add();
+                row = this.dataGridView.Rows.Add();
             }));
+            int number = row + 1;
             Data data = new Data();
-            int row = index;
-            dataGridView.Rows[index].Height = 40;
-            //dataGridView.Rows[index].Cells["buttonCol"].Enabled = false;
-            SafeSetValueCell(row, DataGridCellName.CellStt, index);
+            data.Index = row;
+            SafeSetValueCell(row, DataGridCellName.CellStt, number);
             datas.Add(data);
             return data;
-        }
-
-        public void HandleButtonColumn(int index)
-        {
-            try
-            {
-                this.dataGridView.Invoke(new Action(() =>
-                {
-                    dataGridView.Rows[index].Cells["buttonCol"].Value = "Open Chrome";
-                }));
-            }
-            catch
-            {
-
-            }
-            //DataGridViewButtonColumn btnCl = new DataGridViewButtonColumn();
-            //btnCl.Name = "button";
-            //btnCl.HeaderText = "Action";
-            //btnCl.Text = "Action";
-            //btnCl.UseColumnTextForButtonValue = true;
-            //dataGridView.Columns.Add(btnCl);
         }
         public void SafeSetValueCell(int row, string cellname, object value)
         {

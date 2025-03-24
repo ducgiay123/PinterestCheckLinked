@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ChangeViaFBTool.Singleton
+namespace PinterestCheckLinked.Singleton
 {
     public class PathSingleton
     {
-        public static string ConfigPath
+         public static string ConfigPath
         {
             get
             {

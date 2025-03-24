@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
 
-namespace ChangeViaFBTool
+namespace PinterestCheckLinked
 {
     partial class FormMain
     {
@@ -32,22 +32,20 @@ namespace ChangeViaFBTool
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label label7;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.clstt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clProxy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonCol = new System.Windows.Forms.DataGridViewButtonColumn();
             this.numThreads = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.fbPassword = new System.Windows.Forms.RichTextBox();
+            this.Feature = new System.Windows.Forms.GroupBox();
             this.btnImportData = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnsaving = new System.Windows.Forms.Button();
             this.btnstop = new System.Windows.Forms.Button();
             this.btnstart = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -55,42 +53,28 @@ namespace ChangeViaFBTool
             this.proxyType = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cbproxy = new System.Windows.Forms.CheckBox();
-            this.Feature = new System.Windows.Forms.GroupBox();
-            this.mailNum = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.twoFANum = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.liveNum = new System.Windows.Forms.Label();
             this.dataInfo = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.timeLabel = new System.Windows.Forms.Label();
             this.proxiesData = new System.Windows.Forms.Label();
+            this.DataShow = new System.Windows.Forms.GroupBox();
+            this.NotLinkedOrFailed = new System.Windows.Forms.Label();
+            this.retryInfo = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.errorInfo = new System.Windows.Forms.Label();
+            this.NotLinkOrFailedInfo = new System.Windows.Forms.Label();
+            this.LinkedOrSuccessInfo = new System.Windows.Forms.Label();
+            this.LinkedOrSuccess = new System.Windows.Forms.Label();
             this.tmupdatecount = new System.Windows.Forms.Timer(this.components);
-            label7 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.RequestedQuantity = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numThreads)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.groupBox4.SuspendLayout();
+            this.Feature.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.Feature.SuspendLayout();
+            this.DataShow.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.BackColor = System.Drawing.SystemColors.Control;
-            label7.CausesValidation = false;
-            label7.ForeColor = System.Drawing.Color.CornflowerBlue;
-            label7.Location = new System.Drawing.Point(933, 26);
-            label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(51, 20);
-            label7.TabIndex = 18;
-            label7.Text = "Time: ";
             // 
             // dataGridView
             // 
@@ -100,32 +84,36 @@ namespace ChangeViaFBTool
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clstt,
             this.clEmail,
-            this.clStatus,
-            this.buttonCol});
-            this.dataGridView.Location = new System.Drawing.Point(12, 11);
+            this.clProxy,
+            this.clStatus});
+            this.dataGridView.Location = new System.Drawing.Point(4, 9);
             this.dataGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersVisible = false;
             this.dataGridView.RowHeadersWidth = 62;
             this.dataGridView.RowTemplate.Height = 33;
-            this.dataGridView.Size = new System.Drawing.Size(1106, 348);
+            this.dataGridView.Size = new System.Drawing.Size(556, 308);
             this.dataGridView.TabIndex = 0;
-            this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridButton_Click);
-            this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
             // clstt
             // 
-            this.clstt.FillWeight = 20F;
+            this.clstt.FillWeight = 50F;
             this.clstt.HeaderText = "Stt";
             this.clstt.MinimumWidth = 8;
             this.clstt.Name = "clstt";
             // 
             // clEmail
             // 
-            this.clEmail.FillWeight = 60F;
-            this.clEmail.HeaderText = "Hotmail";
+            this.clEmail.HeaderText = "Email";
             this.clEmail.MinimumWidth = 8;
             this.clEmail.Name = "clEmail";
+            // 
+            // clProxy
+            // 
+            this.clProxy.FillWeight = 50F;
+            this.clProxy.HeaderText = "Proxy";
+            this.clProxy.MinimumWidth = 8;
+            this.clProxy.Name = "clProxy";
             // 
             // clStatus
             // 
@@ -134,34 +122,19 @@ namespace ChangeViaFBTool
             this.clStatus.Name = "clStatus";
             this.clStatus.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-            // buttonCol
-            // 
-            this.buttonCol.FillWeight = 30F;
-            this.buttonCol.HeaderText = "Action";
-            this.buttonCol.MinimumWidth = 8;
-            this.buttonCol.Name = "buttonCol";
-            this.buttonCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.buttonCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.buttonCol.Text = "Run Chrome";
-            // 
             // numThreads
             // 
-            this.numThreads.Location = new System.Drawing.Point(187, 108);
+            this.numThreads.Location = new System.Drawing.Point(81, 35);
             this.numThreads.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.numThreads.Maximum = new decimal(new int[] {
-            300,
-            0,
-            0,
-            0});
             this.numThreads.Name = "numThreads";
-            this.numThreads.Size = new System.Drawing.Size(89, 26);
+            this.numThreads.Size = new System.Drawing.Size(74, 26);
             this.numThreads.TabIndex = 1;
             this.numThreads.ValueChanged += new System.EventHandler(this.numthreads_ValueChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(70, 110);
+            this.label1.Location = new System.Drawing.Point(12, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 20);
             this.label1.TabIndex = 2;
@@ -170,90 +143,82 @@ namespace ChangeViaFBTool
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.groupBox4);
+            this.groupBox1.Controls.Add(this.Feature);
+            this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Location = new System.Drawing.Point(12, 435);
+            this.groupBox1.Location = new System.Drawing.Point(4, 466);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(1106, 250);
+            this.groupBox1.Size = new System.Drawing.Size(556, 223);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Settings";
             // 
-            // groupBox4
+            // Feature
             // 
-            this.groupBox4.Controls.Add(this.label5);
-            this.groupBox4.Controls.Add(this.fbPassword);
-            this.groupBox4.Controls.Add(this.numThreads);
-            this.groupBox4.Controls.Add(this.btnImportData);
-            this.groupBox4.Controls.Add(this.label1);
-            this.groupBox4.Location = new System.Drawing.Point(452, 23);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(303, 213);
-            this.groupBox4.TabIndex = 10;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Data";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(24, 44);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 20);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Pass";
-            // 
-            // fbPassword
-            // 
-            this.fbPassword.Location = new System.Drawing.Point(74, 25);
-            this.fbPassword.Name = "fbPassword";
-            this.fbPassword.Size = new System.Drawing.Size(202, 72);
-            this.fbPassword.TabIndex = 13;
-            this.fbPassword.Text = "";
-            this.fbPassword.TextChanged += new System.EventHandler(this.fbPassword_TextChanged);
+            this.Feature.Controls.Add(this.numThreads);
+            this.Feature.Controls.Add(this.label1);
+            this.Feature.Controls.Add(this.btnImportData);
+            this.Feature.Location = new System.Drawing.Point(202, 27);
+            this.Feature.Name = "Feature";
+            this.Feature.Size = new System.Drawing.Size(170, 151);
+            this.Feature.TabIndex = 12;
+            this.Feature.TabStop = false;
+            this.Feature.Text = "Features";
             // 
             // btnImportData
             // 
-            this.btnImportData.Location = new System.Drawing.Point(74, 145);
+            this.btnImportData.Location = new System.Drawing.Point(10, 79);
             this.btnImportData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnImportData.Name = "btnImportData";
-            this.btnImportData.Size = new System.Drawing.Size(202, 43);
+            this.btnImportData.Size = new System.Drawing.Size(145, 55);
             this.btnImportData.TabIndex = 7;
             this.btnImportData.Text = "Data Import";
             this.btnImportData.UseVisualStyleBackColor = true;
             this.btnImportData.Click += new System.EventHandler(this.importData_BtnClick);
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(534, 208);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(16, 26);
+            this.dateTimePicker1.TabIndex = 8;
+            this.dateTimePicker1.Visible = false;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.tmupdatecount_Tick);
+            // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Controls.Add(this.btnsaving);
             this.groupBox3.Controls.Add(this.btnstop);
             this.groupBox3.Controls.Add(this.btnstart);
-            this.groupBox3.Location = new System.Drawing.Point(19, 23);
+            this.groupBox3.Location = new System.Drawing.Point(8, 27);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox3.Size = new System.Drawing.Size(196, 213);
+            this.groupBox3.Size = new System.Drawing.Size(172, 188);
             this.groupBox3.TabIndex = 9;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Run";
             // 
-            // button1
+            // btnsaving
             // 
-            this.button1.Location = new System.Drawing.Point(32, 144);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(128, 44);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Result Folder";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.saving_BtnClick);
+            this.btnsaving.Font = new System.Drawing.Font("Cambria", 9F);
+            this.btnsaving.Location = new System.Drawing.Point(22, 130);
+            this.btnsaving.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnsaving.Name = "btnsaving";
+            this.btnsaving.Size = new System.Drawing.Size(128, 44);
+            this.btnsaving.TabIndex = 6;
+            this.btnsaving.Text = "Rs Folder";
+            this.btnsaving.UseVisualStyleBackColor = true;
+            this.btnsaving.Click += new System.EventHandler(this.saving_BtnClick);
             // 
             // btnstop
             // 
             this.btnstop.Font = new System.Drawing.Font("Cambria", 9F);
-            this.btnstop.Location = new System.Drawing.Point(32, 86);
+            this.btnstop.Location = new System.Drawing.Point(22, 79);
             this.btnstop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnstop.Name = "btnstop";
             this.btnstop.Size = new System.Drawing.Size(128, 44);
@@ -265,7 +230,7 @@ namespace ChangeViaFBTool
             // btnstart
             // 
             this.btnstart.Font = new System.Drawing.Font("Cambria", 9F);
-            this.btnstart.Location = new System.Drawing.Point(32, 26);
+            this.btnstart.Location = new System.Drawing.Point(22, 25);
             this.btnstart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnstart.Name = "btnstart";
             this.btnstart.Size = new System.Drawing.Size(128, 50);
@@ -280,22 +245,21 @@ namespace ChangeViaFBTool
             this.groupBox2.Controls.Add(this.proxyType);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.cbproxy);
-            this.groupBox2.Location = new System.Drawing.Point(236, 23);
+            this.groupBox2.Location = new System.Drawing.Point(378, 27);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Size = new System.Drawing.Size(192, 213);
+            this.groupBox2.Size = new System.Drawing.Size(172, 151);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Proxy";
+            this.groupBox2.Text = "Proxy Settings";
             // 
             // btnImportProxy
             // 
-            this.btnImportProxy.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnImportProxy.Location = new System.Drawing.Point(29, 144);
+            this.btnImportProxy.Location = new System.Drawing.Point(6, 89);
             this.btnImportProxy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnImportProxy.Name = "btnImportProxy";
-            this.btnImportProxy.Size = new System.Drawing.Size(139, 44);
+            this.btnImportProxy.Size = new System.Drawing.Size(162, 48);
             this.btnImportProxy.TabIndex = 8;
             this.btnImportProxy.Text = "Import";
             this.btnImportProxy.UseVisualStyleBackColor = true;
@@ -307,19 +271,18 @@ namespace ChangeViaFBTool
             this.proxyType.Items.AddRange(new object[] {
             "Http",
             "Socks4",
-            "Socks5",
-            "APIlink"});
-            this.proxyType.Location = new System.Drawing.Point(75, 96);
+            "Socks5"});
+            this.proxyType.Location = new System.Drawing.Point(54, 52);
             this.proxyType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.proxyType.Name = "proxyType";
-            this.proxyType.Size = new System.Drawing.Size(88, 28);
+            this.proxyType.Size = new System.Drawing.Size(74, 28);
             this.proxyType.TabIndex = 2;
             this.proxyType.SelectedIndexChanged += new System.EventHandler(this.proxyType_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 99);
+            this.label2.Location = new System.Drawing.Point(4, 55);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(43, 20);
             this.label2.TabIndex = 1;
@@ -328,7 +291,7 @@ namespace ChangeViaFBTool
             // cbproxy
             // 
             this.cbproxy.AutoSize = true;
-            this.cbproxy.Location = new System.Drawing.Point(29, 44);
+            this.cbproxy.Location = new System.Drawing.Point(4, 25);
             this.cbproxy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbproxy.Name = "cbproxy";
             this.cbproxy.Size = new System.Drawing.Size(73, 24);
@@ -337,191 +300,185 @@ namespace ChangeViaFBTool
             this.cbproxy.UseVisualStyleBackColor = true;
             this.cbproxy.CheckedChanged += new System.EventHandler(this.proxyChecked_ValueChanged);
             // 
-            // Feature
-            // 
-            this.Feature.Controls.Add(this.mailNum);
-            this.Feature.Controls.Add(this.label11);
-            this.Feature.Controls.Add(this.twoFANum);
-            this.Feature.Controls.Add(this.label6);
-            this.Feature.Controls.Add(this.label3);
-            this.Feature.Controls.Add(this.liveNum);
-            this.Feature.Controls.Add(this.dataInfo);
-            this.Feature.Controls.Add(this.label8);
-            this.Feature.Controls.Add(this.label4);
-            this.Feature.Controls.Add(this.timeLabel);
-            this.Feature.Controls.Add(this.proxiesData);
-            this.Feature.Controls.Add(label7);
-            this.Feature.Controls.Add(this.label9);
-            this.Feature.Controls.Add(this.errorInfo);
-            this.Feature.Location = new System.Drawing.Point(12, 364);
-            this.Feature.Name = "Feature";
-            this.Feature.Size = new System.Drawing.Size(1106, 66);
-            this.Feature.TabIndex = 12;
-            this.Feature.TabStop = false;
-            this.Feature.Text = "Information";
-            // 
-            // mailNum
-            // 
-            this.mailNum.AutoSize = true;
-            this.mailNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.mailNum.Location = new System.Drawing.Point(666, 26);
-            this.mailNum.Name = "mailNum";
-            this.mailNum.Size = new System.Drawing.Size(18, 20);
-            this.mailNum.TabIndex = 25;
-            this.mailNum.Text = "0";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.label11.Location = new System.Drawing.Point(610, 26);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(41, 20);
-            this.label11.TabIndex = 24;
-            this.label11.Text = "Mail:";
-            // 
-            // twoFANum
-            // 
-            this.twoFANum.AutoSize = true;
-            this.twoFANum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.twoFANum.Location = new System.Drawing.Point(512, 26);
-            this.twoFANum.Name = "twoFANum";
-            this.twoFANum.Size = new System.Drawing.Size(18, 20);
-            this.twoFANum.TabIndex = 23;
-            this.twoFANum.Text = "0";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label6.Location = new System.Drawing.Point(448, 26);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(43, 20);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "2FA:";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 26);
+            this.label3.Location = new System.Drawing.Point(30, 31);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 20);
             this.label3.TabIndex = 4;
             this.label3.Text = "Data:";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // liveNum
-            // 
-            this.liveNum.AutoSize = true;
-            this.liveNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.liveNum.Location = new System.Drawing.Point(371, 26);
-            this.liveNum.Name = "liveNum";
-            this.liveNum.Size = new System.Drawing.Size(18, 20);
-            this.liveNum.TabIndex = 22;
-            this.liveNum.Text = "0";
-            // 
             // dataInfo
             // 
             this.dataInfo.AutoSize = true;
-            this.dataInfo.Location = new System.Drawing.Point(69, 26);
+            this.dataInfo.Location = new System.Drawing.Point(84, 31);
             this.dataInfo.Name = "dataInfo";
             this.dataInfo.Size = new System.Drawing.Size(18, 20);
             this.dataInfo.TabIndex = 5;
             this.dataInfo.Text = "0";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label8.Location = new System.Drawing.Point(317, 26);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(38, 20);
-            this.label8.TabIndex = 20;
-            this.label8.Text = "Full:";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(162, 26);
+            this.label4.Location = new System.Drawing.Point(30, 97);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(64, 20);
             this.label4.TabIndex = 6;
             this.label4.Text = "Proxies:";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // timeLabel
-            // 
-            this.timeLabel.AutoSize = true;
-            this.timeLabel.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.timeLabel.Location = new System.Drawing.Point(998, 26);
-            this.timeLabel.Name = "timeLabel";
-            this.timeLabel.Size = new System.Drawing.Size(18, 20);
-            this.timeLabel.TabIndex = 19;
-            this.timeLabel.Text = "0";
-            this.timeLabel.Click += new System.EventHandler(this.label8_Click_1);
-            // 
             // proxiesData
             // 
             this.proxiesData.AutoSize = true;
-            this.proxiesData.Location = new System.Drawing.Point(232, 26);
+            this.proxiesData.Location = new System.Drawing.Point(100, 97);
             this.proxiesData.Name = "proxiesData";
             this.proxiesData.Size = new System.Drawing.Size(18, 20);
             this.proxiesData.TabIndex = 7;
             this.proxiesData.Text = "0";
             this.proxiesData.Click += new System.EventHandler(this.labelData_Click);
             // 
+            // DataShow
+            // 
+            this.DataShow.Controls.Add(this.RequestedQuantity);
+            this.DataShow.Controls.Add(this.label5);
+            this.DataShow.Controls.Add(this.NotLinkedOrFailed);
+            this.DataShow.Controls.Add(this.retryInfo);
+            this.DataShow.Controls.Add(this.label9);
+            this.DataShow.Controls.Add(this.NotLinkOrFailedInfo);
+            this.DataShow.Controls.Add(this.LinkedOrSuccessInfo);
+            this.DataShow.Controls.Add(this.LinkedOrSuccess);
+            this.DataShow.Controls.Add(this.proxiesData);
+            this.DataShow.Controls.Add(this.label4);
+            this.DataShow.Controls.Add(this.label3);
+            this.DataShow.Controls.Add(this.dataInfo);
+            this.DataShow.Location = new System.Drawing.Point(4, 325);
+            this.DataShow.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.DataShow.Name = "DataShow";
+            this.DataShow.Padding = new System.Windows.Forms.Padding(0);
+            this.DataShow.Size = new System.Drawing.Size(556, 135);
+            this.DataShow.TabIndex = 9;
+            this.DataShow.TabStop = false;
+            this.DataShow.Text = "Information";
+            this.DataShow.Enter += new System.EventHandler(this.groupBox4_Enter);
+            // 
+            // NotLinkedOrFailed
+            // 
+            this.NotLinkedOrFailed.AutoSize = true;
+            this.NotLinkedOrFailed.ForeColor = System.Drawing.Color.Red;
+            this.NotLinkedOrFailed.Location = new System.Drawing.Point(296, 63);
+            this.NotLinkedOrFailed.Name = "NotLinkedOrFailed";
+            this.NotLinkedOrFailed.Size = new System.Drawing.Size(85, 20);
+            this.NotLinkedOrFailed.TabIndex = 15;
+            this.NotLinkedOrFailed.Text = "NotLinked:";
+            // 
+            // retryInfo
+            // 
+            this.retryInfo.AutoSize = true;
+            this.retryInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.retryInfo.Location = new System.Drawing.Point(93, 64);
+            this.retryInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.retryInfo.Name = "retryInfo";
+            this.retryInfo.Size = new System.Drawing.Size(18, 20);
+            this.retryInfo.TabIndex = 14;
+            this.retryInfo.Text = "0";
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label9.Location = new System.Drawing.Point(781, 26);
+            this.label9.Location = new System.Drawing.Point(30, 64);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(52, 20);
+            this.label9.Size = new System.Drawing.Size(55, 20);
             this.label9.TabIndex = 13;
-            this.label9.Text = "Erorr: ";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
+            this.label9.Text = "Retry: ";
             // 
-            // errorInfo
+            // NotLinkOrFailedInfo
             // 
-            this.errorInfo.AutoSize = true;
-            this.errorInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.errorInfo.Location = new System.Drawing.Point(844, 26);
-            this.errorInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.errorInfo.Name = "errorInfo";
-            this.errorInfo.Size = new System.Drawing.Size(18, 20);
-            this.errorInfo.TabIndex = 14;
-            this.errorInfo.Text = "0";
-            this.errorInfo.Click += new System.EventHandler(this.errorInfo_Click);
+            this.NotLinkOrFailedInfo.AutoSize = true;
+            this.NotLinkOrFailedInfo.ForeColor = System.Drawing.Color.Red;
+            this.NotLinkOrFailedInfo.Location = new System.Drawing.Point(388, 63);
+            this.NotLinkOrFailedInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.NotLinkOrFailedInfo.Name = "NotLinkOrFailedInfo";
+            this.NotLinkOrFailedInfo.Size = new System.Drawing.Size(18, 20);
+            this.NotLinkOrFailedInfo.TabIndex = 12;
+            this.NotLinkOrFailedInfo.Text = "0";
+            this.NotLinkOrFailedInfo.Click += new System.EventHandler(this.label8_Click);
+            // 
+            // LinkedOrSuccessInfo
+            // 
+            this.LinkedOrSuccessInfo.AutoSize = true;
+            this.LinkedOrSuccessInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.LinkedOrSuccessInfo.Location = new System.Drawing.Point(368, 31);
+            this.LinkedOrSuccessInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LinkedOrSuccessInfo.Name = "LinkedOrSuccessInfo";
+            this.LinkedOrSuccessInfo.Size = new System.Drawing.Size(18, 20);
+            this.LinkedOrSuccessInfo.TabIndex = 10;
+            this.LinkedOrSuccessInfo.Text = "0";
+            this.LinkedOrSuccessInfo.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // LinkedOrSuccess
+            // 
+            this.LinkedOrSuccess.AutoSize = true;
+            this.LinkedOrSuccess.ForeColor = System.Drawing.Color.LimeGreen;
+            this.LinkedOrSuccess.Location = new System.Drawing.Point(296, 31);
+            this.LinkedOrSuccess.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LinkedOrSuccess.Name = "LinkedOrSuccess";
+            this.LinkedOrSuccess.Size = new System.Drawing.Size(60, 20);
+            this.LinkedOrSuccess.TabIndex = 8;
+            this.LinkedOrSuccess.Text = "Linked:";
             // 
             // tmupdatecount
             // 
             this.tmupdatecount.Tick += new System.EventHandler(this.tmupdatecount_Tick);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Blue;
+            this.label5.Location = new System.Drawing.Point(296, 95);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(92, 20);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Requested:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // RequestedQuantity
+            // 
+            this.RequestedQuantity.AutoSize = true;
+            this.RequestedQuantity.ForeColor = System.Drawing.Color.Blue;
+            this.RequestedQuantity.Location = new System.Drawing.Point(394, 95);
+            this.RequestedQuantity.Name = "RequestedQuantity";
+            this.RequestedQuantity.Size = new System.Drawing.Size(18, 20);
+            this.RequestedQuantity.TabIndex = 17;
+            this.RequestedQuantity.Text = "0";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1122, 690);
-            this.Controls.Add(this.Feature);
+            this.ClientSize = new System.Drawing.Size(566, 691);
+            this.Controls.Add(this.DataShow);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormMain";
-            this.Text = "Change Vie Facebook Tool";
+            this.Text = "Pinterest Check";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numThreads)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
+            this.Feature.ResumeLayout(false);
+            this.Feature.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.Feature.ResumeLayout(false);
-            this.Feature.PerformLayout();
+            this.DataShow.ResumeLayout(false);
+            this.DataShow.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -536,6 +493,7 @@ namespace ChangeViaFBTool
         private CheckBox cbproxy;
         private Label label2;
         private Button btnstart;
+        private Button btnsaving;
         private Button btnstop;
         private Button btnImportProxy;
         private Button btnImportData;
@@ -545,24 +503,21 @@ namespace ChangeViaFBTool
         private Label dataInfo;
         private Label label4;
         private Label proxiesData;
-        private Label label9;
-        private Label errorInfo;
-        private GroupBox Feature;
-        private Timer tmupdatecount;
-        private Label liveNum;
-        private Label label8;
-        private Label timeLabel;
-        private Button button1;
-        private GroupBox groupBox4;
-        private Label label5;
-        private RichTextBox fbPassword;
-        private Label label6;
-        private Label mailNum;
-        private Label label11;
-        private Label twoFANum;
+        private DateTimePicker dateTimePicker1;
         private DataGridViewTextBoxColumn clstt;
         private DataGridViewTextBoxColumn clEmail;
+        private DataGridViewTextBoxColumn clProxy;
         private DataGridViewTextBoxColumn clStatus;
-        private DataGridViewButtonColumn buttonCol;
+        private GroupBox DataShow;
+        private Label label9;
+        private Label NotLinkOrFailedInfo;
+        private Label LinkedOrSuccessInfo;
+        private Label LinkedOrSuccess;
+        private Label retryInfo;
+        private Label NotLinkedOrFailed;
+        private GroupBox Feature;
+        private Timer tmupdatecount;
+        private Label RequestedQuantity;
+        private Label label5;
     }
 }

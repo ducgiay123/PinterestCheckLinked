@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ChangeViaFBTool.Models
+namespace PinterestCheckLinked.Models
 {
     public class Data
     {

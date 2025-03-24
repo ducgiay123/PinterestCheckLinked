@@ -1,13 +1,13 @@
-﻿using ChangeViaFBTool.Enums;
+﻿using PinterestCheckLinked.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ChangeViaFBTool.Models
+namespace PinterestCheckLinked.Models
 {
-    public class FacecbookAPIExecuteResult
+    public class PinterestAPIExecuteResult
     {
         public class CheckpointEmailSubmitResult : BaseAPIExecuteResult
         {
@@ -20,7 +20,7 @@ namespace ChangeViaFBTool.Models
         public class BaseAPIExecuteResult
         {
             public Exception Exception { get; set; }
-            public FacebookAPIExecuteStatusCode StatusCode { get; set; }
+            public PinterestAPIExecuteStatusCode StatusCode { get; set; }
         }
     }
 }

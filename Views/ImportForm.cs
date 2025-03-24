@@ -10,7 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ChangeViaFBTool.Views
+namespace PinterestCheckLinked.Views
 {
     public partial class ImportForm : Form
     {

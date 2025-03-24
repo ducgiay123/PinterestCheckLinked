@@ -1,11 +1,9 @@
-﻿using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace ChangeViaFBTool.Config
+namespace PinterestCheckLinked.Config
 {
     public class IniFile   // revision 11
     {
@@ -52,21 +50,6 @@ namespace ChangeViaFBTool.Config
         public bool KeyExists(string Key, string Section = null)
         {
             return Read(Key, Section).Length > 0;
-        }
-        public static Dictionary<string, string> ConvertQueueToDictionary(ConcurrentQueue<string> queue)
-        {
-            Dictionary<string, string> emailPasswordDict = new Dictionary<string, string>();
-
-            while (queue.TryDequeue(out string item)) // Dequeue safely
-            {
-                string[] parts = item.Split('|');
-                if (parts.Length == 2) // Ensure valid format
-                {
-                    emailPasswordDict[parts[0]] = parts[1]; // Store email as key, password as value
-                }
-            }
-
-            return emailPasswordDict;
         }
     }
 }
