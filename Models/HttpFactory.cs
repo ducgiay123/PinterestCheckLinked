@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PinterestCheckLinked.Models;
+using CheckDieLinkedinToolV3.Models;
 using Leaf.xNet;
 
-namespace PinterestCheckLinked.Models
+namespace CheckDieLinkedinToolV3.Models
 {
     public class HttpFactory
     {

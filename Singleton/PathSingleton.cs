@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PinterestCheckLinked.Singleton
+namespace CheckDieLinkedinToolV3.Singleton
 {
     public class PathSingleton
     {

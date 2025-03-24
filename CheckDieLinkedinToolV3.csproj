@@ -6,14 +6,14 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{1E28E98C-66F7-4FFD-AAFB-A70971E7D9B9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>PinterestCheckLinked</RootNamespace>
-    <AssemblyName>PinterestCheckLinked</AssemblyName>
+    <RootNamespace>CheckDieLinkedinToolV3</RootNamespace>
+    <AssemblyName>CheckDieLinkedinToolV3</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>D:\Study\Tools\PinterestCheckLinked\publish\</PublishUrl>
+    <PublishUrl>D:\Study\Tools\CheckDieLinkedinToolV3\publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -28,6 +28,8 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -52,7 +54,7 @@
     <ManifestCertificateThumbprint>E9675547292628831E15AC24B524638C69FCCE0E</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>PinterestCheckLinked_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>CheckDieLinkedinToolV3_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -104,23 +106,27 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WebDriver, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Selenium.WebDriver.4.27.0\lib\netstandard2.0\WebDriver.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Config\IniFile.cs" />
     <Compile Include="Config\UIConfig.cs" />
     <Compile Include="Enums\CheckpointEmailStatusCode.cs" />
-    <Compile Include="Enums\PinterestAPIExecuteStatusCode.cs" />
+    <Compile Include="Enums\LinkedinAPIExecuteStatusCode.cs" />
     <Compile Include="Enums\VerifyEmailStatusCode.cs" />
     <Compile Include="Models\Data.cs" />
     <Compile Include="Models\DataGridCellName.cs" />
     <Compile Include="Models\HttpConfig.cs" />
     <Compile Include="Models\HttpFactory.cs" />
     <Compile Include="Models\HttpGlobal.cs" />
-    <Compile Include="Models\PinterestAPIExecuteResult.cs" />
-    <Compile Include="Models\PinterestAPIOptions.cs" />
+    <Compile Include="Models\LinkedinAPIExecuteResult.cs" />
+    <Compile Include="Models\LinkedinAPIOptions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\APIServices.cs" />
+    <Compile Include="Services\ChromeDriverServices.cs" />
     <Compile Include="Services\ViewGridDataService.cs" />
     <Compile Include="Singleton\PathSingleton.cs" />
     <Compile Include="Singleton\RandomSingleton.cs" />
@@ -152,7 +158,7 @@
       <DependentUpon>ImportForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
-    <None Include="PinterestCheckLinked_TemporaryKey.pfx" />
+    <None Include="CheckDieLinkedinToolV3_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -177,4 +183,11 @@
     </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="packages\Selenium.WebDriver.4.27.0\build\Selenium.WebDriver.targets" Condition="Exists('packages\Selenium.WebDriver.4.27.0\build\Selenium.WebDriver.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Selenium.WebDriver.4.27.0\build\Selenium.WebDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Selenium.WebDriver.4.27.0\build\Selenium.WebDriver.targets'))" />
+  </Target>
 </Project>
